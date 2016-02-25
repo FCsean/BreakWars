@@ -187,14 +187,14 @@ void Breakout::ballCollisionDetection() {
 				if (x > 0) {
 					x *= -1;
 				}
-				x = -diff / 30;
+				x = -diff / 15;
 			}			
 			else {
 				float diff = ballPosition.x - playerPosition.x;
 				if (x < 0) {
 					x *= -1;
 				}
-				x = diff / 30;
+				x = diff / 15;
 				
 			}
 			if (y < 0)
