@@ -72,8 +72,8 @@ bool Breakout::init()
 }
 
 void Breakout::showLabel() {
-	startLabel = Label::createWithTTF("Press space to Start", "micross.ttf", 24);
-	startLabel->setColor(Color3B::WHITE);
+	startLabel = Label::createWithTTF("Press space to Start", "micross.ttf", 48);
+	startLabel->setColor(Color3B::YELLOW);
 	startLabel->setPosition(Vec2(WIDTH / 2, HEIGHT / 2));
 	this->addChild(startLabel);
 }
@@ -169,8 +169,8 @@ void Breakout::ballCollisionDetection() {
 		}
 		else {
 			gameOver = true;
-			startLabel = Label::createWithTTF("You Lose!\nPress space to Restart", "micross.ttf", 24);
-			startLabel->setColor(Color3B::WHITE);
+			startLabel = Label::createWithTTF("You Lose!\nPress space to Restart", "micross.ttf", 48);
+			startLabel->setColor(Color3B::YELLOW);
 			startLabel->setPosition(Vec2(WIDTH / 2, HEIGHT / 2));
 			this->addChild(startLabel);
 		}
@@ -243,8 +243,8 @@ void Breakout::ballCollisionDetection() {
 	if (bars.size() <= 0) {
 		this->unscheduleUpdate();
 		gameOver = true;
-		startLabel = Label::createWithTTF("You Win!\nPress space to Restart", "micross.ttf", 24);
-		startLabel->setColor(Color3B::WHITE);
+		startLabel = Label::createWithTTF("You Win!\nPress space to Restart", "micross.ttf", 48);
+		startLabel->setColor(Color3B::YELLOW);
 		startLabel->setPosition(Vec2(WIDTH / 2, HEIGHT / 2));
 		this->addChild(startLabel);
 	}
