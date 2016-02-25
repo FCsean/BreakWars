@@ -80,7 +80,7 @@ void Breakout::showLabel() {
 
 void Breakout::initPlayerBall(){
 	player->setPosition(Vec2(WIDTH / 2, 50));
-	ball->setPosition(Vec2(WIDTH / 2, 250));
+	ball->setPosition(Vec2(WIDTH / 2 - 10, 250));
 	x = 0;
 	y = -5;
 	move = nomove;
