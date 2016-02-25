@@ -25,7 +25,7 @@ bool Breakout::init()
 	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 	audio->preloadEffect("deflect.wav");
 	audio->preloadEffect("breakbrick.wav");
-
+	audio->playBackgroundMusic("bgm.wav", true);
 	auto eventListener = EventListenerKeyboard::create();
 	eventListener->onKeyPressed = [this](EventKeyboard::KeyCode keyCode, Event* event) {
 		switch (keyCode) {
