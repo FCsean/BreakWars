@@ -53,7 +53,7 @@ bool Breakout::init()
 			break;
 		}
 	};
-	eventListener->onKeyReleased = [this](EventKeyboard::KeyCode keyCode, Event* event) {
+	eventListener->onKeyReleased = [this, audio](EventKeyboard::KeyCode keyCode, Event* event) {
 		switch (keyCode) {
 		case EventKeyboard::KeyCode::KEY_LEFT_ARROW:
 			if (move == left)
@@ -62,6 +62,12 @@ bool Breakout::init()
 		case EventKeyboard::KeyCode::KEY_RIGHT_ARROW:
 			if (move == right)
 				move = Move::nomove;
+			break;
+		case EventKeyboard::KeyCode::KEY_P:
+			if (audio->isBackgroundMusicPlaying())
+				audio->pauseBackgroundMusic();
+			else
+				audio->resumeBackgroundMusic();
 			break;
 		}
 	};
