@@ -25,6 +25,8 @@ bool Breakout::init()
 	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 	audio->preloadEffect("deflect.wav");
 	audio->preloadEffect("breakbrick.wav");
+	audio->preloadEffect("lose.wav");
+	audio->preloadEffect("gameover.wav");
 	audio->playBackgroundMusic("bgm.wav", true);
 	auto eventListener = EventListenerKeyboard::create();
 	eventListener->onKeyPressed = [this](EventKeyboard::KeyCode keyCode, Event* event) {
@@ -171,9 +173,11 @@ void Breakout::ballCollisionDetection() {
 		this->removeChild(livesSprite[lives]);
 		if (lives > 0){
 			lose = true;
+			CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("lose.wav");
 			showLabel();
 		}
 		else {
+			CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("gameover.wav");
 			gameOver = true;
 			startLabel = Label::createWithTTF("You Lose!\nPress space to Restart", "micross.ttf", 48);
 			startLabel->setColor(Color3B::YELLOW);
