@@ -27,6 +27,7 @@ bool Breakout::init()
 	audio->preloadEffect("breakbrick.wav");
 	audio->preloadEffect("lose.wav");
 	audio->preloadEffect("gameover.wav");
+	audio->preloadEffect("win.wav");
 	audio->playBackgroundMusic("bgm.wav", true);
 	auto eventListener = EventListenerKeyboard::create();
 	eventListener->onKeyPressed = [this](EventKeyboard::KeyCode keyCode, Event* event) {
@@ -251,6 +252,7 @@ void Breakout::ballCollisionDetection() {
 		}
 	}
 	if (bars.size() <= 0) {
+		CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("win.wav");
 		this->unscheduleUpdate();
 		gameOver = true;
 		startLabel = Label::createWithTTF("You Win!\nPress space to Restart", "micross.ttf", 48);
